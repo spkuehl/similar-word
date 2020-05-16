@@ -14,6 +14,8 @@ class WordComparison(object):
 
         #Make starting list
         list_of_words = list(self.user_submissions.values())
+        #Lower case all words for comparison
+        list_of_words = [word.lower() for word in list_of_words]
         list_of_words.append(self.starting_word)
         #TODO Remove identical unique_words.
         stemmed_dict = dict()
