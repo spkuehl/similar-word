@@ -61,7 +61,12 @@ def test_player_word_matches_player_word_plural():
     assert len(word_comp.get_unique_words()) == 0
 
 def test_player_word_matches_starting_word_not_case_sensitive():
-    pass
+    word_comp = WordComparison(starting_word='prince')
+    word_comp.user_submissions = {'joe': 'PRInce'}
+    assert len(word_comp.get_unique_words()) == 0
 
 def test_player_word_matches_player_word_not_case_sensitive():
-    pass
+    word_comp = WordComparison(starting_word='condiment')
+    word_comp.user_submissions = {'joe': 'Prince',
+                                  'jane': 'pRINce'}
+    assert len(word_comp.get_unique_words()) == 0
