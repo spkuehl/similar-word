@@ -2,6 +2,8 @@
 
 similar-words is a Python library for dealing with determining if a list of words have contain similar or identical words.
 
+Automate the rule enforcement process of the game "JUST ONE".
+
 ## Installation
 
 Clone the repository.
@@ -35,4 +37,3 @@ Pull requests are always welcome. For major changes, please open an issue first 
 Fork > Clone > Make Changes > Commit > Pull Request
 
 Encouraged to update tests as appropriate.
-
