@@ -1,4 +1,5 @@
 from nltk.stem.snowball import EnglishStemmer
+from collections import Counter
 
 
 class WordComparison(object):
@@ -16,8 +17,15 @@ class WordComparison(object):
         list_of_words = list(self.user_submissions.values())
         #Lower case all words for comparison
         list_of_words = [word.lower() for word in list_of_words]
+        #Add starting word to list.
         list_of_words.append(self.starting_word)
-        #TODO Remove identical unique_words.
+        #Remove identical unique_words.
+        counter_of_words = Counter(list_of_words)
+        list_of_words = []
+        for word in counter_of_words:
+            if counter_of_words[word] == 1:
+                list_of_words.append(word)
+
         stemmed_dict = dict()
         for word in list_of_words:
             stemmed_dict[word] = stemmer.stem(word)
