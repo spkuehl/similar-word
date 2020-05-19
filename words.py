@@ -3,8 +3,8 @@ from collections import Counter
 
 
 class WordComparison(object):
-    def __init__(self, starting_word):
-        self.starting_word = starting_word
+    def __init__(self, prompt):
+        self.prompt = prompt
         self.user_submissions = dict()
 
     def get_unique_words(self):
@@ -18,7 +18,7 @@ class WordComparison(object):
         #Lower case all words for comparison
         list_of_words = [word.lower() for word in list_of_words]
         #Add starting word to list.
-        list_of_words.append(self.starting_word)
+        list_of_words.append(self.prompt)
         #Remove identical unique_words.
         counter_of_words = Counter(list_of_words)
         list_of_words = []
@@ -32,6 +32,6 @@ class WordComparison(object):
 
         unique_words = [key for key, value in stemmed_dict.items()
                         if list(stemmed_dict.values()).count(value) == 1]
-        if self.starting_word in unique_words:
-            unique_words.remove(self.starting_word)
+        if self.prompt in unique_words:
+            unique_words.remove(self.prompt)
         return unique_words
