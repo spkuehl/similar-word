@@ -19,7 +19,7 @@ Run pytests.
 ```python
 import words
 
-wc = words.WordComparison(starting_word='condiment')
+wc = words.WordComparison(prompt='condiment')
 
 wc.user_submissions = {'joe': 'ketchup',
                        'zoe': 'sauce',
@@ -28,12 +28,12 @@ wc.user_submissions = {'joe': 'ketchup',
                        'dani': 'Bottle',
                        'ali': 'bottles'}
 wc.get_unique_words()
-#['mustard','sauce'] is returned
+#['sauce','mustard'] is returned
 ```
 
 ## Contributing
 Pull requests are always welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Fork > Clone > Make Changes > Commit > Pull Request
+Fork > Clone Fork > Branch Clone > Make Changes > Commit Branch > Pull Request
 
-Encouraged to update tests as appropriate.
+Encouraged to update unit tests with PRs.
