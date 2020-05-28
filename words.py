@@ -7,7 +7,7 @@ class WordComparison(object):
         self.prompt = prompt
         self.user_submissions = dict()
 
-    def get_unique_words(self):
+    def get_unique_words_by_stemming(self):
         """Compare a starting word and a group of user submitted words.
            Return a list unique words, with matching user.
         """
@@ -35,3 +35,6 @@ class WordComparison(object):
         if self.prompt in unique_words:
             unique_words.remove(self.prompt)
         return unique_words
+
+    def get_unique_words_by_letter_matching(self):
+        pass
