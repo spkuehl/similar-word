@@ -9,6 +9,7 @@ class WordComparison(object):
 
     def get_unique_words_by_stemming(self):
         """Compare a starting word and a group of user submitted words.
+           Using stemming to determing similarity.
            Return a list unique words, with matching user.
         """
         stemmer = EnglishStemmer()
@@ -37,4 +38,24 @@ class WordComparison(object):
         return unique_words
 
     def get_unique_words_by_letter_matching(self):
-        pass
+        """Compare a starting word and a group of user submitted words.
+           Using letter matching to determing similarity.
+           Return a list unique words, with matching user.
+        """
+        #Make starting list
+        list_of_words = list(self.user_submissions.values())
+        #Lower case all words for comparison
+        list_of_words = [word.lower() for word in list_of_words]
+        #Add starting word to list.
+        list_of_words.append(self.prompt)
+        #Remove identical unique_words.
+        counter_of_words = Counter(list_of_words)
+        list_of_words = []
+        for word in counter_of_words:
+            if counter_of_words[word] == 1:
+                list_of_words.append(word)
+        #WIP: letter matching logic here
+        letter_matching_dict = dict()
+        unique_words = [key for key, value in letter_matching_dict.items()
+                        if list(letter_matching_dict.values()).count(value) == 1]
+        return unique_words
